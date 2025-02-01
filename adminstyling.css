@@ -1,0 +1,54 @@
+
+/* Admin Side */
+:root {
+    --primary-color: #fac02;
+    --background-color: #0f1128;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: white;
+  }
+  
+  .sidebar {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+  }
+  
+  .sidebar .nav-link {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .sidebar .nav-link.active {
+    background-color: #ffd700;
+    color: white;
+  }
+  
+  .dashboard-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+  }
+  
+  .card {
+    background-color: #1c1f3a;
+    border: none;
+  }
+  
+  .card-title {
+    color: white;
+  }
+  .card-text.fs-2 {
+  color: white; 
+  }
+  
+  .nav-link.active {
+  background-color: #007bff; /* Highlight color */
+  color: white; /* Highlighted text color */
+  font-weight: bold; /* Optional bold text */
+  }
+  
+  .hidden {
+    display: none;
+  }

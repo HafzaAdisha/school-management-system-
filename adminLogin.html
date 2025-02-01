@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <!-- Bootstrap CSS link -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Simple if-else logic for login
+            if (email === 'admin@gmail.com' && password === 'admin123') {
+                alert('Login successful!');
+                // Redirect or perform any other action
+                window.location.href = 'adminDashboard.html';
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        }
+    </script>
+</head>
+<body>
+   <!-- Background -->
+   <div class="Background"></div>
+
+   <!-- Login heading -->
+   <div class="container mt-5">
+      <div class="row justify-content-center">
+         <div class="col-lg-6 col-md-8 col-12">
+            <h3 class="loginhead text-light">Admin LOGIN</h3>
+         </div>
+      </div>
+   </div>
+
+   <!-- Login section -->
+   <div class="container mt-4">
+      <div class="row align-items-center">
+         <!-- Image column -->
+         <div class="col-lg-6 col-md-6 col-12 text-center sm-3">
+            <img class="login-pic rounded-circle" src="school data/loginpic.webp" alt="students">
+         </div>
+         <!-- Form column -->
+         <div class="col-lg-6 col-md-6 col-12">
+            <div class="login">
+               <form class="form-control" onsubmit="validateLogin(event)">
+                  <label for="email">Email:</label>
+                  <input type="email" name="email" id="email" required>
+
+                  <label for="password">Password:</label>
+                  <input type="password" name="password" id="password" required>
+
+                  <button type="submit" class="text-light">Login</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

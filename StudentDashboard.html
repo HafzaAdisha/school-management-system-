@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="studentstyling.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-md-block sidebar px-3">
+                <h3 class="text-center py-3">Student Panel</h3>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a id="dashboardLink" class="nav-link active" href="#" onclick="showSection('dashboard')">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="viewResultsLink" class="nav-link" href="#" onclick="showSection('viewResults')">View Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="viewFeesLink" class="nav-link" href="#" onclick="showSection('viewFees')">View Fees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a id="viewAttendanceLink" class="nav-link" href="#" onclick="showSection('viewAttendance')">View Attendance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="studentLogin.html" onclick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <main class="col-md-10 ms-sm-auto px-4">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="content-section">
+                    <div class="dashboard-header">
+                        <div class="profile-section">
+                            <img src="https://via.placeholder.com/60" alt="Student Profile Picture">
+                            <div>
+                                <h3>Welcome, <span>Kashif Ahmad</span></h3>
+                                <p>Student ID: <span>STU12345</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dashboard Content -->
+                    <div class="row g-4">
+                        <!-- Stats Cards -->
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <h5 class="card-title">Attendance</h5>
+                                <p class="card-text">You have attended <span class="text-warning">95%</span> of the classes.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <h5 class="card-title">Results</h5>
+                                <p class="card-text">Latest Grade: <span class="text-warning">A</span> in Mathematics.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card p-3">
+                                <h5 class="card-title">Fees</h5>
+                                <p class="card-text">Your fee status is: <span class="text-warning">Paid</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlighted Section -->
+                    <div class="mt-4">
+                        <h4>Important Notices</h4>
+                        <div class="highlight-section">
+                            <p>Midterm exams are scheduled for <span>15th March 2024</span>. Please prepare accordingly.</p>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="mt-4">
+                        <h4>Recent Activity</h4>
+                        <ul class="recent-activity">
+                            <li><span>Result Updated:</span> Scored 90% in Science on 10th Dec.</li>
+                            <li><span>Fee Reminder:</span> Fee payment was successful on 5th Dec.</li>
+                            <li><span>Attendance Marked:</span> Present on 11th Dec.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- View Results Section -->
+                <div id="viewResults" class="content-section hidden">
+                     <!-- Main Content -->
+            <main class="col-md-10 ms-sm-auto px-4">
+                <div class="results-header">
+                    <h3>View Results</h3>
+                    <p>Below are your latest academic results.</p>
+                </div>
+
+                <!-- Results Table -->
+                <div class="table-responsive">
+                    <table class="table table-hover text-center align-middle">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Score</th>
+                                <th>Grade</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mathematics</td>
+                                <td>95</td>
+                                <td>A</td>
+                                <td><span class="status-pass">Pass</span></td>
+                            </tr>
+                            <tr>
+                                <td>English</td>
+                                <td>88</td>
+                                <td>B+</td>
+                                <td><span class="status-pass">Pass</span></td>
+                            </tr>
+                            <tr>
+                                <td>Science</td>
+                                <td>70</td>
+                                <td>B</td>
+                                <td><span class="status-pass">Pass</span></td>
+                            </tr>
+                            <tr>
+                                <td>History</td>
+                                <td>45</td>
+                                <td>D</td>
+                                <td><span class="status-fail">Fail</span></td>
+                            </tr>
+                            <tr>
+                                <td>Computer Science</td>
+                                <td>89</td>
+                                <td>A</td>
+                                <td><span class="status-pass">Pass</span></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+
+               <!-- View Fees Section -->
+<div id="viewFees" class="content-section hidden">
+    <h2 class="section-title">Your Fee Details</h2>
+    <!-- Fees Table -->
+    <table class="table table-hover text-center align-middle">
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Fee Amount</th>
+                <th>Status</th>
+                <th>Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>January</td>
+                <td>5,000 PKR</td>
+                <td><span class="status-paid">Paid</span></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>5,000 PKR</td>
+                <td><span class="status-due">Due</span></td>
+                <td>28-Feb-2024</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>5,000 PKR</td>
+                <td><span class="status-due">Due</span></td>
+                <td>31-Mar-2024</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>5,000 PKR</td>
+                <td><span class="status-paid">Paid</span></td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td>5,000 PKR</td>
+                <td><span class="status-due">Due</span></td>
+                <td>31-May-2024</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+               
+
+                <!-- View Attendance Section -->
+                <div id="viewAttendance" class="content-section hidden">
+                    <h2>View Attendance</h2>
+                    <p>Your attendance records are displayed here.</p>
+                    
+    
+                    <!-- Attendance Table -->
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>01-Dec-2024</td>
+                                    <td><span class="status-present">Present</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>02-Dec-2024</td>
+                                    <td><span class="status-absent">Absent</span></td>
+                                    <td>No excuse provided</td>
+                                </tr>
+                                <tr>
+                                    <td>03-Dec-2024</td>
+                                    <td><span class="status-leave">Leave</span></td>
+                                    <td>Medical Leave</td>
+                                </tr>
+                                <tr>
+                                    <td>04-Dec-2024</td>
+                                    <td><span class="status-present">Present</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>05-Dec-2024</td>
+                                    <td><span class="status-present">Present</span></td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the selected section and hide others
+        function showSection(section) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => {
+                sec.classList.add('hidden');
+            });
+
+            // Show the selected section
+            const activeSection = document.getElementById(section);
+            if (activeSection) {
+                activeSection.classList.remove('hidden');
+            }
+
+            // Update active link in the sidebar
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+            });
+            const activeLink = document.querySelector(`#${section}Link`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Default section on page load
+        window.onload = function() {
+            showSection('dashboard');
+        };
+
+        // Dummy logout function
+        function logout() {
+            alert('Logging out...');
+            // Add your logout logic here
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="adminstyling.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-2 d-md-block sidebar px-3">
+                <h3 class="text-center py-3">Admin Panel</h3>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-section="dashboard"
+                            onclick="showSection('dashboard')">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="manageResults"
+                            onclick="showSection('manageResults')">Manage Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="manageAdmissions"
+                            onclick="showSection('manageAdmissions')">Manage Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="manageFees"
+                            onclick="showSection('manageFees')">Manage Fees</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-section="manageAttendance"
+                            onclick="showSection('manageAttendance')">Manage Attendance</a>
+                    </li>
+                    <div>
+                        <li class="nav-item">
+                            <a class="nav-link" href="adminLogin.html" onclick="logout()">Logout</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+
+
+            <!-- Main Content -->
+            <main class="col-md-10 ms-sm-auto px-4">
+                <div class="dashboard-header d-flex justify-content-between align-items-center">
+                    <h1>Welcome, Admin</h1>
+                    <button class="btn btn-dark">Settings</button>
+                </div>
+
+                <!-- Sections Dashboard -->
+                <div id="dashboard" class="mt-4">
+                    <div class="row mt-4">
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Students</h5>
+                                    <p class="card-text fs-2">450</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Admissions</h5>
+                                    <p class="card-text fs-2">120</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Fees Collected</h5>
+                                    <p class="card-text fs-2">45,000PKR</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <h5 class="card-title">Attendance</h5>
+                                    <p class="card-text fs-2">95%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Recent Activities</h5>
+                                    <ul style="color: aliceblue;">
+                                        <li>Updated Results</li>
+                                        <li>Processed Admissions</li>
+                                        <li>Checked Fee Reports</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Notifications</h5>
+                                    <ul style="color: aliceblue;">
+                                        <li>10 Pending Admissions</li>
+                                        <li>Fee Due for 15 Students</li>
+                                        <li>Attendance Logs Updated</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Result Management -->
+                <div id="manageResults" class="mt-4 hidden">
+                    <h2>Manage Results</h2>
+                    <form class="row g-3">
+                        <div class="col-md-4">
+                            <label for="classSelection" class="form-label">Select Class</label>
+                            <select id="classSelection" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="subjectSelection" class="form-label">Select Subject</label>
+                            <select id="subjectSelection" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option>English</option>
+                                <option>Mathematics</option>
+                                <option>Science</option>
+                                <option>Urdu</option>
+                                <option>Islamiyat</option>
+                                <option>Pak Studies</option>
+                                <option>Physics</option>
+                                <option>Chemistry</option>
+                                <option>Biology</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="searchId" class="form-label">Search by ID</label>
+                            <input type="text" id="searchId" class="form-control" placeholder="Enter ID">
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-primary w-100">Search</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-success w-100">Add</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-danger w-100">Delete</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4">
+                        <h3>Class Results</h3>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Roll No</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Marks Obtained</th>
+                                    <th scope="col">Total Marks</th>
+                                    <th scope="col">Percentage</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>101</td>
+                                    <td>Ali Khan</td>
+                                    <td>85</td>
+                                    <td>100</td>
+                                    <td>85%</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>102</td>
+                                    <td>Sara Ahmed</td>
+                                    <td>92</td>
+                                    <td>100</td>
+                                    <td>92%</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>103</td>
+                                    <td>Bilal Raza</td>
+                                    <td>78</td>
+                                    <td>100</td>
+                                    <td>78%</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Admission Management -->
+                <div id="manageAdmissions" class="mt-4 hidden">
+                    <h2>Manage Admissions</h2>
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="studentId" class="form-label">Student ID</label>
+                            <input type="text" id="studentId" class="form-control" placeholder="Enter Student ID">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="studentName" class="form-label">Student Name</label>
+                            <input type="text" id="studentName" class="form-control" placeholder="Enter Student Name">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fatherName" class="form-label">Father's Name</label>
+                            <input type="text" id="fatherName" class="form-control" placeholder="Enter Father's Name">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="admissionClass" class="form-label">Class</label>
+                            <select id="admissionClass" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="contactNumber" class="form-label">Contact Number</label>
+                            <input type="text" id="contactNumber" class="form-control"
+                                placeholder="Enter Contact Number">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="admissionDate" class="form-label">Admission Date</label>
+                            <input type="date" id="admissionDate" class="form-control">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cnicBForm" class="form-label">CNIC/BForm</label>
+                            <input type="text" id="cnicBForm" class="form-control" placeholder="Enter CNIC or BForm">
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-primary w-100">Search</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-success w-100">Add</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-danger w-100">Delete</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4">
+                        <h3>Admission Records</h3>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Student ID</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Father's Name</th>
+                                    <th scope="col">Class</th>
+                                    <th scope="col">Contact Number</th>
+                                    <th scope="col">Admission Date</th>
+                                    <th scope="col">CNIC/BForm</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>201</td>
+                                    <td>Ayesha Malik</td>
+                                    <td>Rashid Malik</td>
+                                    <td>Class 5</td>
+                                    <td>0300-1234567</td>
+                                    <td>2024-01-15</td>
+                                    <td>12345-6789012-3</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>202</td>
+                                    <td>Hamza Khan</td>
+                                    <td>Ali Khan</td>
+                                    <td>Class 9</td>
+                                    <td>0301-2345678</td>
+                                    <td>2024-02-10</td>
+                                    <td>23456-7890123-4</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>203</td>
+                                    <td>Zara Ahmed</td>
+                                    <td>Ahmed Raza</td>
+                                    <td>Class 7</td>
+                                    <td>0321-3456789</td>
+                                    <td>2024-03-20</td>
+                                    <td>34567-8901234-5</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Fee Management -->
+                <div id="manageFees" class="mt-4 hidden">
+                    <h2>Manage Fees</h2>
+                    <form class="row g-3">
+                        <div class="col-md-4">
+                            <label for="feeStudentId" class="form-label">Student ID</label>
+                            <input type="text" id="feeStudentId" class="form-control" placeholder="Enter Student ID">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="feeMonthSelect" class="form-label">Month</label>
+                            <select id="feeMonthSelect" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>june</option>
+                                <option>july</option>
+                                <option>August</option>
+                                <option>september</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="feeAmountInput" class="form-label">Fee Amount</label>
+                            <input type="number" id="feeAmountInput" class="form-control" placeholder="Enter Amount">
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-primary w-100">Search</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-success w-100">Add</button>
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-danger w-100">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- Attendance Management -->
+                <div id="manageAttendance" class="mt-4">
+                    <h2>Manage Attendance</h2>
+                    <form class="row g-3">
+                        <div class="col-md-4">
+                            <label for="attendanceDate" class="form-label">Date</label>
+                            <input type="date" id="attendanceDate" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="classSelection" class="form-label">Select Class</label>
+                            <select id="classSelection" class="form-select">
+                                <option selected disabled>Choose...</option>
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="studentId" class="form-label">Enter Student ID</label>
+                            <input type="text" id="studentId" class="form-control" placeholder="Enter Student ID">
+                        </div>
+                        <div class="col-md-4 align-self-end">
+                            <button type="button" class="btn btn-primary w-100">Add</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-4">
+                        <h3>Class Attendance</h3>
+                        <table class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Roll No</th>
+                                    <th scope="col">Student Name</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>101</td>
+                                    <td>Ali Khan</td>
+                                    <td>Present</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>102</td>
+                                    <td>Sara Ahmed</td>
+                                    <td>Absent</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>103</td>
+                                    <td>Bilal Raza</td>
+                                    <td>Present</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+            </main>
+
+        </div>
+    </div>
+
+    <script>
+        // Function to show the selected section
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('main > div');
+            sections.forEach(section => section.classList.add('hidden')); // Hide all sections
+            document.getElementById(sectionId).classList.remove('hidden'); // Show the selected section
+
+            const links = document.querySelectorAll('.sidebar .nav-link');
+            links.forEach(link => link.classList.remove('active')); // Remove 'active' class from all links
+
+            // Find and activate the corresponding link
+            const activeLink = Array.from(links).find(link => link.getAttribute('onclick').includes(sectionId));
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+        }
+
+        // Automatically select the "Dashboard" option on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('dashboard'); // Call showSection with the ID of the "Dashboard" section
+        });
+    </script>
+    <script>
+        function logout() {
+            const confirmLogout = confirm("Are you sure you want to log out?");
+            if (confirmLogout) {
+                // Redirect to the login page
+                window.location.href = "login.html"; 
+            }
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
